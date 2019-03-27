@@ -12,11 +12,11 @@ public class Main {
 		
 		System.out.println("Enter training dataset file name:");
 		String trainfilename = sc.nextLine();
-		//String trainfilename = "train.txt";
+		//String trainfilename = "train2.txt";
 		
 		System.out.println("Enter test dataset file name:");
 		String testfilename = sc.nextLine();
-		//String testfilename = "test.txt";
+		//String testfilename = "test1.txt";
 		
 		
 		System.out.println("Enter learning rate:");
@@ -28,16 +28,16 @@ public class Main {
 		int iterate = Integer.parseInt(iteration);
 		
 		
-		//Double rate = 0.01;
+		//Double rate = 0.1;
 				    		
 		 
 	    double[][] trainingData = DataSetup.loadData(trainfilename);
-	    DataSetup.printData(trainingData);
+	    //DataSetup.printData(trainingData);
 
 
 	    System.out.println("___________________________________________________");        
 	    double[][] testingData = DataSetup.loadData(testfilename);
-	    DataSetup.printData(testingData);
+	    //DataSetup.printData(testingData);
 
 	    
 	    
@@ -70,12 +70,14 @@ public class Main {
 		
 		if (label.equalsIgnoreCase("Iris-virginica")) {
            label = "1";
+           testingData[0][4] = Double.parseDouble(label);
         }
         else if (label.equalsIgnoreCase("Iris-versicolor")) {
             label = "0";
+            testingData[0][4] = Double.parseDouble(label);
         }
 		
-		testingData[0][4] = Double.parseDouble(label);
+		testingData[0][2] = Double.parseDouble(label);
 				
 				
 		System.out.println("Enter training dataset file name:");
@@ -105,9 +107,7 @@ public class Main {
 	 public static void main(String[] args) {
 		 
 		 Perceptron perceptron = null;
-		 
-		 
-		 while(true) {
+	
 		 	System.out.println("[0] testing by a new input");
 	    	System.out.println("[1] testing by a test file");
 	    	System.out.println("[-1] exit");
@@ -125,9 +125,7 @@ public class Main {
 	    	else {
 	    		System.out.println("invalid value!");
 	    	}
-	    	}   
-		 
-	 }
+	    	}    	
     
     
 	 }

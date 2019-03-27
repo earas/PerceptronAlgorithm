@@ -90,6 +90,7 @@ public class Perceptron {
 	            //System.out.println("############# " + dataPoint[i]);
 	            weights[i] -= dataPoint[i] * learningRate;
 	        }
+	        //System.out.println("-last: "+Arrays.toString(weights));
 	    }
 
 	    private void increaseWeightVector(double[] dataPoint) {
@@ -97,6 +98,7 @@ public class Perceptron {
 	            //System.out.println("************ " + dataPoint[i]);
 	            weights[i] += dataPoint[i] * learningRate;
 	        }
+	        //System.out.println("+last: "+Arrays.toString(weights));
 	    }
 		
 	    public void predict() {
@@ -138,7 +140,7 @@ public class Perceptron {
 	            }
 	            else if (correct && prediction == 0) {
 	                numberOfCorrectPredictions++;
-	                FP++;
+	                TN++;
 	                System.out.println("-Predicted: " + zero + "  | Truth: " + zero);
 	            	            
 	            }
@@ -163,8 +165,8 @@ public class Perceptron {
 	           // System.out.println("FP: "+FP);
 	        }
 	        
-	        calculateAccuracy(numberOfCorrectPredictions);
-	        //System.out.println("TP: "+TP +" - FP: "+FP+" - FN: "+FN);
+	      System.out.println("True Positive: "+TP +" - True Negative: "+TN +" - False Positive: "+FP+" - False Negative: "+FN);
+	        calculateAccuracy(numberOfCorrectPredictions);	        
 	        calculatePrecision(TP,FP);
 	        calculateRecall(TP,FN);
 
